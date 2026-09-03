@@ -1,0 +1,3 @@
+export default function DatePicker({ startDate, endDate, onStartChange, onEndChange }) {
+  return <div className="date-fields"><label className="planner-input-label" htmlFor="start-date">Start date</label><input className="planner-input" id="start-date" type="date" value={startDate} min={new Date().toISOString().slice(0, 10)} onChange={(event) => onStartChange(event.target.value)} /><label className="planner-input-label" htmlFor="end-date">End date</label><input className="planner-input" id="end-date" type="date" value={endDate} min={startDate} onChange={(event) => onEndChange(event.target.value)} /></div>
+}

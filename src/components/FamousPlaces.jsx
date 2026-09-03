@@ -1,0 +1,5 @@
+import { ArrowRight, Star } from 'lucide-react'
+
+export default function FamousPlaces({ places, onSelectDestination, onSeeAll }) {
+  return <section className="places-section" id="places"><div className="section-heading"><div><p className="eyebrow"><span /> Worth the detour</p><h2>Famous places.<br /><em>Personal stories.</em></h2></div><button className="text-button" onClick={onSeeAll}>See all places <ArrowRight size={16} /></button></div><div className="places-grid">{places.map(([name, region, image, description], index) => <article className="place-card" key={name} onClick={() => onSelectDestination(region)} onKeyDown={(event) => event.key === 'Enter' && onSelectDestination(region)} role="button" tabIndex="0"><img src={image} alt={name} onError={(event) => { event.currentTarget.hidden = true; event.currentTarget.parentElement.classList.add('image-fallback') }} /><div className="place-caption"><span>0{index + 1}</span><div><h3>{name}</h3><p>{region}</p>{description && <small>{description}</small>}</div><Star size={16} fill="currentColor" /></div></article>)}</div></section>
+}

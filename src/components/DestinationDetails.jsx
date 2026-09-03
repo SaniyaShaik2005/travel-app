@@ -1,0 +1,7 @@
+import { ArrowRight, CalendarDays, Navigation, X } from 'lucide-react'
+
+export default function DestinationDetails({ destination, places, onClose, onPlan }) {
+  if (!destination) return null
+  const destinationPlaces = places.filter(([, region]) => region === destination.name)
+  return <div className="modal-backdrop" onClick={onClose}><aside className="detail-panel" onClick={(event) => event.stopPropagation()}><button className="close-button" onClick={onClose} aria-label="Close destination details"><X /></button><img src={destination.image} alt={destination.name} onError={(event) => { event.currentTarget.hidden = true; event.currentTarget.parentElement.classList.add('image-fallback') }} /><div className="detail-content"><p className="eyebrow">{destination.country} · {destination.weather}</p><h2>{destination.name}</h2><p>{destination.description}</p><div className="detail-meta"><span><CalendarDays size={16} /> Best in {destination.bestIn}</span><span><Navigation size={16} /> {destination.duration}</span></div><h3 className="detail-places-heading">Famous places</h3><div className="detail-places">{destinationPlaces.map(([name, region, image, description]) => <div className="detail-place-item" key={name}><img src={image} alt={name} onError={(event) => { event.currentTarget.hidden = true }} /><span>{name}<small>{description}</small></span></div>)}</div><button className="button button-dark" onClick={onPlan}>Plan this trip <ArrowRight size={17} /></button></div></aside></div>
+}
