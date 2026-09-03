@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Sparkles } from 'lucide-react'
 import './App.css'
 import { destinations, places } from './data/destinations'
@@ -12,6 +12,7 @@ import WeatherWidget from './components/WeatherWidget'
 import TripPlanner from './components/TripPlanner'
 import TravelChatbot from './components/TravelChatbot'
 import Footer from './components/Footer'
+import TravelHighlights from './components/TravelHighlights'
 import { useWeather } from './hooks/useWeather'
 
 const categories = ['All places', 'Coastlines', 'Wild escapes', 'City rituals']
@@ -35,6 +36,17 @@ function App() {
   const { weather, location, status: locationState, requestLocation, setManualLocation, selectDestination } = useWeather()
   const [chatLoading, setChatLoading] = useState(false)
   const [chatError, setChatError] = useState('')
+  const [activeSection, setActiveSection] = useState('explore')
+
+  useEffect(() => {
+    const sections = ['explore', 'places', 'journal'].map((id) => document.getElementById(id)).filter(Boolean)
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+      if (visible) setActiveSection(visible.target.id)
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: [0.1, 0.4, 0.7] })
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
 
   const filteredDestinations = useMemo(() => destinations.filter((destination) => `${destination.name} ${destination.country}`.toLowerCase().includes(query.toLowerCase()) && (category === 'All places' || destination.category === category)), [query, category])
   function promptForLocation() { setManualLocation(window.prompt('Enter a city or region')) }
@@ -59,10 +71,11 @@ function App() {
   function showAllPlaces() { setQuery(''); setCategory('All places'); document.querySelector('#explore')?.scrollIntoView({ behavior: 'smooth' }) }
 
   return <main>
-    <Hero poster={destinations[1].image} location={location} mobileNav={mobileNav} onToggleMenu={() => setMobileNav((open) => !open)} onRequestLocation={requestLocation} onExplore={() => document.querySelector('#explore')?.scrollIntoView({ behavior: 'smooth' })} />
+    <Hero poster={destinations[1].image} location={location} activeSection={activeSection} mobileNav={mobileNav} onToggleMenu={() => setMobileNav((open) => !open)} onRequestLocation={requestLocation} onExplore={() => document.querySelector('#explore')?.scrollIntoView({ behavior: 'smooth' })} />
     <section className="intro" id="explore"><div><p className="eyebrow"><span /> The world, well chosen</p><h2>Where will you<br /><em>feel most alive?</em></h2></div><p className="intro-copy">Not a checklist. A collection of places selected for their character, rhythm, and the little details you will remember long after you return.</p></section>
     <section className="explorer"><SearchPanel query={query} category={category} categories={categories} onQueryChange={setQuery} onCategoryChange={setCategory} /><DestinationGrid destinations={filteredDestinations} onSelect={(destination) => { setSelectedDestination(destination); selectDestination(destination) }} /></section>
     <WeatherWidget location={location} weather={weather} locationState={locationState} onRequestLocation={requestLocation} onManualLocation={promptForLocation} />
+    <TravelHighlights />
     <FamousPlaces places={places} onSelectDestination={selectByDestinationName} onSeeAll={showAllPlaces} />
     <section className="planner" id="journal"><div className="planner-copy"><p className="eyebrow light"><span /> Your next chapter</p><h2>Tell us how you<br /><em>want to feel.</em></h2><p>Our travel assistant turns a few instincts into a day-by-day itinerary that leaves space for life to happen.</p><button className="button button-light" onClick={() => setPlannerOpen(true)}><Sparkles size={16} /> Build my itinerary</button></div><div className="planner-art"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><span className="art-label">The art of<br /><em>going.</em></span><span className="art-coord">35° 00' N<br />135° 46' E</span></div></section>
     <Footer />
