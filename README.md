@@ -1,16 +1,29 @@
-# React + Vite
+# 🌍 Travel Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern and interactive travel application designed to help users explore destinations, discover famous places, check weather information, and interact with an AI-powered travel assistant.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Explore popular travel destinations
+- Select travel dates
+- Weather information for destinations
+- AI-powered travel chatbot
+- Famous places and destination details
+- Coastal destination filtering
+- Responsive and modern user interface
 
-## React Compiler
+## 🛠️ Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- JavaScript
+- CSS
+- APIs
+- Git and GitHub
 
-## Expanding the Oxlint configuration
+## 🚀 How to Run the Project
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Clone the repository
+
+```bash
+git clone https://github.com/SaniyaShaik2005/travel-app.git
