@@ -83,3 +83,26 @@ A modern and interactive travel application that helps users explore destination
 🌐 [View Live Application](https://chic-cupcake-8fa614.netlify.app/)
 
 ## ✨ Features
+
+## 📸 Application Screenshots
+
+### 1. Travel Application Homepage
+![Travel Application Homepage](Screenshot%202026-09-03%20122441.png)
+
+### 2. Application View
+![Application View](Screenshot%202026-09-03%20122504.png)
+
+### 3. Destination Explorer
+![Destination Explorer](Screenshot%202026-09-03%20122516.png)
+
+### 4. Travel Features
+![Travel Features](Screenshot%202026-09-03%20122525.png)
+
+### 5. Destination Details
+![Destination Details](Screenshot%202026-09-03%20122533.png)
+
+### 6. Trip Planning Experience
+![Trip Planning Experience](Screenshot%202026-09-03%20122637.png)
+
+### 7. AI Travel Assistant
+![AI Travel Assistant](Screenshot%202026-09-03%20122657.png)
