@@ -1,15 +1,15 @@
 # 🌍 Travel Application
 
-A modern and interactive travel application designed to help users explore destinations, discover famous places, check weather information, and interact with an AI-powered travel assistant.
+A modern and interactive travel application that helps users explore destinations, discover famous places, check weather information, and interact with an AI-powered travel assistant.
 
 ## ✨ Features
 
 - Explore popular travel destinations
-- Select travel dates
-- Weather information for destinations
+- Select travel dates and plan trips
+- Check weather information for destinations
 - AI-powered travel chatbot
-- Famous places and destination details
-- Coastal destination filtering
+- Discover famous places and destination details
+- Filter coastal destinations
 - Responsive and modern user interface
 
 ## 🛠️ Technologies Used
@@ -18,12 +18,58 @@ A modern and interactive travel application designed to help users explore desti
 - Vite
 - JavaScript
 - CSS
-- APIs
-- Git and GitHub
+- Weather API
+- AI API
+- Git & GitHub
 
-## 🚀 How to Run the Project
+## 🚀 Getting Started
 
-1. Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/SaniyaShaik2005/travel-app.git
+```
+
+### Navigate to the project folder
+
+```bash
+cd travel-app
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in the terminal to view the application.
+
+## 📂 Project Structure
+
+```text
+travel-app/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── services/
+│   │   ├── ai.js
+│   │   └── weather.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── package.json
+└── vite.config.js
+```
+
+## 👩‍💻 Author
+
+**Saniya Shaik**
+
+GitHub: https://github.com/SaniyaShaik2005
