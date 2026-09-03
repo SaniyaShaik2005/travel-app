@@ -74,6 +74,12 @@ travel-app/
 
 GitHub: https://github.com/SaniyaShaik2005
 
+# 🌍 Travel Application
+
+A modern and interactive travel application that helps users explore destinations, discover famous places, check weather information, and interact with an AI-powered travel assistant.
+
 ## 🔗 Live Demo
 
-🌐 https://chic-cupcake-8fa614.netlify.app/
+🌐 [View Live Application](https://chic-cupcake-8fa614.netlify.app/)
+
+## ✨ Features
